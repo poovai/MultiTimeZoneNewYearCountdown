@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Countdown</title>
+
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div id="fireworks-overlay"></div>
+
+<div id="celebration-overlay" class="hidden" aria-hidden="true">
+  <div class="celebrate-card">
+    <div class="celebrate-title">🎉 Happy New Year!</div>
+    <div id="celebrate-subtitle" class="celebrate-subtitle"></div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="appmark">✨</div>
+    <div class="apptext">
+      <div class="apptitle">New Year Countdown</div>
+      <div class="appsub">
+        Your timezone: <b id="browserTz"></b> • Now: <b id="browserNow" class="mono"></b>
+      </div>
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <button id="openFilters" class="btn btn-primary" title="Filters & Settings">
+      ⚙️ Filters
+    </button>
+  </div>
+</header>
+
+<main class="main">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Region</th>
+        <th>Timezone</th>
+        <th>Current Time</th>
+        <th>Countdown</th>
+      </tr>
+    </thead>
+    <tbody id="countdownTable"></tbody>
+  </table>
+</main>
+
+<div id="filterModal" class="modal hidden" aria-hidden="true">
+  <div id="modalBackdrop" class="modal-backdrop"></div>
+
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Filters">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Filters & Settings</div>
+        <div class="modal-sub">Pick timezones to monitor and sort order.</div>
+      </div>
+      <button id="closeFilters" class="btn btn-ghost" title="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="control">
+        <label for="search">Search timezones</label>
+        <input id="search" type="text" placeholder="Kolkata, Los Angeles, Tokyo…">
+      </div>
+
+      <div class="control">
+        <label for="tzSelect">Choose timezones (multi-select)</label>
+        <select id="tzSelect" multiple size="10"></select>
+
+        <div class="btn-row">
+          <button id="addSelected" class="btn btn-primary">Add selected</button>
+          <button id="showSelectedOnly" class="btn btn-ghost">Show selected only</button>
+          <button id="showAll" class="btn btn-ghost">Show defaults + selected</button>
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="customTz">Add custom IANA timezone</label>
+        <div class="inline">
+          <input id="customTz" type="text" placeholder="e.g., Europe/Paris">
+          <button id="addCustom" class="btn btn-primary">Add</button>
+        </div>
+        <div class="hint">Examples: <code>Asia/Kolkata</code>, <code>America/New_York</code>, <code>Australia/Sydney</code></div>
+      </div>
+
+      <div class="control">
+        <label>Options</label>
+        <div class="toggles">
+          <label class="toggle">
+            <input id="sortSoonest" type="checkbox" checked>
+            <span>Sort by soonest New Year</span>
+          </label>
+
+          <label class="toggle">
+            <input id="pinBrowser" type="checkbox" checked>
+            <span>Always include my timezone</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="control">
+        <label>Displayed timezones</label>
+        <div id="chipWrap" class="chip-wrap"></div>
+      </div>
+    </div>
+
+    <div class="modal-foot">
+      <button id="doneFilters" class="btn btn-primary">Done</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
