@@ -12,16 +12,19 @@ A fullscreen dashboard that tracks New Year countdowns across multiple timezones
 * Option to pin your browser timezone
 * Sort by soonest New Year
 * Mobile-friendly responsive UI
-
 ## Run locally
 
-Just open the HTML file in your browser — no build tools needed.
+### Just open the HTML file in your browser — no build tools needed.
 
 ```
 index.html
 ```
 
-(Or host it anywhere as a static site.)
+### Or open this URL
+
+[https://poovai.github.io/MultiTimeZoneNewYearCountdown/](https://poovai.github.io/MultiTimeZoneNewYearCountdown/)
+
+### (Or host it anywhere as a static site.)
 
 ##  Adding custom timezones
 
